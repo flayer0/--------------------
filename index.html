@@ -17,7 +17,7 @@
                     <h1 class="display-5">Городская библиотека</h1>
                 </div>
                 <div class="col-md-6 text-end">
-                    <button id="randomBookBtn" class="btn btn-light btn-lg">
+                    <button onclick="getRandomBook()" id="randomBookBtn" class="btn btn-light btn-lg">
                         Случайная книга
                     </button>
                 </div>
@@ -71,6 +71,10 @@
                 container.appendChild(col);
             });
         };
+        function getRandomBook() {
+            const randomBook = books[Math.floor(Math.random() * books.length)];
+            alert(`Случайная книга: "${randomBook.title}"\nАвтор: ${randomBook.author}`);
+        }
         displayBooks();
     </script>
 </body>
