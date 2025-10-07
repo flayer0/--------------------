@@ -29,9 +29,50 @@
     <main class="container my-5">
         <h2 class="mb-4">Каталог книг</h2>
         <div id="booksContainer" class="row g-4">
-            
+
         </div>
     </main>
+
+    <script>
+        const books = [
+            {
+                title: "Чтото там",
+                author: "Пушкин",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcC8nlArIrdpynlIN66tzA8-EhwkhBaDFLgw&s",
+            },
+            {
+                title: "Вообще незнаю",
+                author: "Пушкин",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcC8nlArIrdpynlIN66tzA8-EhwkhBaDFLgw&s",
+            },
+            {
+                title: "Нет идей",
+                author: "Пушкин",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcC8nlArIrdpynlIN66tzA8-EhwkhBaDFLgw&s",
+            }
+        ];
+        function displayBooks() {
+            const container = document.getElementById('booksContainer');
+
+            books.forEach(book => {
+                const col = document.createElement('div');
+                col.className = 'col-lg-4';
+
+                col.innerHTML = `
+                    <div class="card book-card h-100">
+                        <img src="${book.image}" class="card-img-top book-image" alt="${book.title}">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">${book.title}</h5>
+                            <p class="card-text">Автор: ${book.author}</p>
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(col);
+            });
+        };
+        displayBooks();
+    </script>
 </body>
 
 </html>
